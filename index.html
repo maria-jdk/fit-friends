@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fit &amp; Friends – Studio für Gruppenfitness &amp; Ernährungsberatung in Ziethen</title>
+<meta name="description" content="Gruppenfitness, Personal Training und ganzheitliche Ernährungsberatung in Ziethen bei Ratzeburg. Zumba, Jumping, BodyPower, Yoga, Rücken Fit u.v.m. – seit über 20 Jahren.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#33503f;
+    --moss:#5b7a5a;
+    --sage:#8aa481;
+    --sand:#f4efe6;
+    --cream:#fbf9f4;
+    --clay:#c1714f;
+    --clay-dark:#a85a3a;
+    --ink:#2b2b27;
+    --muted:#6a6a60;
+    --radius:18px;
+    --shadow:0 18px 50px -24px rgba(51,80,63,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito Sans',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.15;color:var(--forest)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .accent{color:var(--clay)}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,249,244,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(51,80,63,.10);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center}
+  .brand-logo{height:42px;width:auto;display:block}
+  .nav-links{display:flex;gap:30px;align-items:center;font-weight:600;font-size:.96rem}
+  .nav-links a{color:var(--forest);transition:color .2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--clay)}
+  .btn{
+    display:inline-block;background:var(--clay);color:#fff;font-weight:700;
+    padding:12px 24px;border-radius:999px;transition:transform .15s,background .2s;
+    border:none;cursor:pointer;font-size:.95rem;
+  }
+  .btn:hover{background:var(--clay-dark);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--forest);border:1.5px solid var(--sage)}
+  .btn-ghost:hover{background:var(--forest);color:#fff;border-color:var(--forest)}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--forest)}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#3a5645 0%,#33503f 55%,#2a4234 100%);color:var(--cream)}
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 15%,rgba(193,113,79,.35),transparent 45%),
+               radial-gradient(circle at 12% 85%,rgba(138,164,129,.30),transparent 40%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;padding:84px 0 92px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:var(--sand);opacity:.9;margin-bottom:22px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--clay);display:inline-block;border-radius:2px}
+  .hero h1{color:var(--cream);font-size:clamp(2.4rem,5vw,3.7rem);font-weight:600;margin-bottom:22px}
+  .hero p.lead{font-size:1.18rem;color:#e8e3d6;max-width:30ch;margin-bottom:18px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .hero-card{
+    background:rgba(251,249,244,.10);border:1px solid rgba(251,249,244,.22);
+    border-radius:var(--radius);padding:30px;backdrop-filter:blur(6px);
+  }
+  .hero-card h3{color:var(--cream);font-size:1.25rem;margin-bottom:16px}
+  .check-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .check-list li{display:flex;gap:12px;align-items:flex-start;color:#ede8db;font-weight:500}
+  .check-list svg{flex:none;margin-top:3px}
+
+  /* SECTION BASICS */
+  section{padding:78px 0}
+  .section-head{max-width:660px;margin:0 auto 50px;text-align:center}
+  .section-head .eyebrow{color:var(--clay);justify-content:center}
+  .section-head .eyebrow::before{background:var(--clay)}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
+  .section-head p{color:var(--muted);font-size:1.08rem;margin-top:14px}
+
+  /* CONCEPT */
+  .concept{background:var(--sand)}
+  .concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .concept h2{font-size:clamp(1.9rem,3.6vw,2.5rem);margin-bottom:20px}
+  .concept p{color:#4a4a42;margin-bottom:16px}
+  .concept .pill{display:inline-block;background:var(--forest);color:var(--sand);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:20px}
+  .feature-stack{display:flex;flex-direction:column;gap:18px}
+  .feature{display:flex;gap:16px;background:var(--cream);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
+  .feature .ico{width:46px;height:46px;border-radius:12px;background:var(--sage);display:grid;place-items:center;flex:none;color:#fff}
+  .feature h4{font-family:'Fraunces',serif;color:var(--forest);font-size:1.12rem;margin-bottom:4px}
+  .feature p{font-size:.96rem;color:var(--muted);margin:0}
+
+  /* OFFERS */
+  .offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .offer{
+    background:#fff;border:1px solid rgba(51,80,63,.10);border-radius:var(--radius);
+    padding:26px;transition:transform .18s,box-shadow .18s,border-color .18s;position:relative;
+  }
+  .offer:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--sage)}
+  .offer .tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clay)}
+  .offer h3{font-size:1.22rem;margin:8px 0 8px}
+  .offer p{font-size:.95rem;color:var(--muted);margin:0}
+  .offer .dot{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;margin-bottom:16px;color:#fff;font-size:1.2rem}
+
+  /* HOLISTIC banner */
+  .holistic{background:linear-gradient(150deg,#5b7a5a,#33503f);color:var(--cream)}
+  .holistic .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .holistic h2{color:var(--cream);font-size:clamp(1.9rem,3.4vw,2.5rem);margin-bottom:18px}
+  .holistic p{color:#e9e4d7;margin-bottom:16px}
+  .holistic .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .chip{background:rgba(251,249,244,.14);border:1px solid rgba(251,249,244,.25);padding:8px 16px;border-radius:999px;font-weight:600;font-size:.9rem}
+
+  /* JUBILEE */
+  .jubilee{text-align:center;background:var(--sand)}
+  .jubilee .badge{display:inline-block;font-family:'Fraunces',serif;font-size:3rem;color:var(--clay);font-weight:600}
+  .jubilee h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin:6px 0 16px}
+  .jubilee p{max-width:620px;margin:0 auto;color:#4a4a42;font-size:1.08rem}
+
+  /* CONTACT */
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .contact-card{background:var(--forest);color:var(--cream);border-radius:24px;padding:46px;box-shadow:var(--shadow)}
+  .contact-card h2{color:var(--cream);font-size:2rem;margin-bottom:10px}
+  .contact-card p{color:#dfe3d6;margin-bottom:26px}
+  .contact-row{display:flex;gap:14px;align-items:center;margin-bottom:18px;font-weight:600}
+  .contact-row .ico{width:42px;height:42px;border-radius:12px;background:rgba(251,249,244,.14);display:grid;place-items:center;flex:none}
+  .contact-row a:hover{color:var(--clay)}
+  .info-box{background:#fff;border-radius:24px;padding:40px;border:1px solid rgba(51,80,63,.10)}
+  .info-box h3{font-size:1.4rem;margin-bottom:18px}
+  .info-box .line{display:flex;gap:12px;margin-bottom:14px;color:#4a4a42}
+  .info-box .line strong{color:var(--forest)}
+  .hours{margin-top:8px;border-top:1px dashed rgba(51,80,63,.2);padding-top:18px;color:var(--muted);font-size:.95rem}
+
+  /* FOOTER */
+  footer{background:var(--forest);color:#cdd6c8;padding:54px 0 28px;font-size:.93rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px}
+  footer h4{font-family:'Fraunces',serif;color:var(--cream);font-size:1.1rem;margin-bottom:14px}
+  footer a:hover{color:#fff}
+  .foot-links{display:flex;flex-direction:column;gap:9px}
+  .foot-bottom{border-top:1px solid rgba(251,249,244,.14);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.85rem;color:#9caf95}
+  .foot-brand{margin-bottom:16px}
+  .foot-logo{height:54px;width:auto;display:block}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-inner,.concept-grid,.holistic .wrap,.contact .wrap{grid-template-columns:1fr}
+    .offers-grid{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .nav-links{
+      display:none;position:absolute;top:74px;left:0;right:0;
+      flex-direction:column;gap:0;background:var(--cream);padding:10px 24px 20px;
+      border-bottom:1px solid rgba(51,80,63,.1);box-shadow:var(--shadow);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:12px 0;border-bottom:1px solid rgba(51,80,63,.08);width:100%}
+    .nav-links .btn{margin-top:12px;text-align:center}
+    .menu-toggle{display:block}
+  }
+  @media(max-width:560px){
+    .offers-grid,.foot-grid{grid-template-columns:1fr}
+    section{padding:56px 0}
+    .contact-card,.info-box{padding:30px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand" aria-label="Fit &amp; Friends – Startseite">
+      <img src="logo.svg" alt="Fit &amp; Friends" class="brand-logo">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#top" class="active">Home</a>
+      <a href="angebot.html">Angebot</a>
+      <a href="trainer.html">Trainer</a>
+      <a href="kursplan.html">Kursplan</a>
+      <a href="news.html">News</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="btn">Probestunde</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding:0">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow">Ganzheitliches Gesundheitsmanagement</span>
+      <h1>Effektiver Sport, der sich anfühlt wie ein Treffen mit guten Freunden.</h1>
+      <p class="lead">Dein Studio für Gruppenfitness &amp; Ernährungsberatung in Ziethen bei Ratzeburg – seit über 20 Jahren.</p>
+      <div class="hero-cta">
+        <a href="#kontakt" class="btn">Jetzt Probestunde sichern</a>
+        <a href="#angebot" class="btn btn-ghost" style="color:var(--cream);border-color:rgba(251,249,244,.4)">Angebot entdecken</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Bist du bereit für ein neues Körpergefühl?</h3>
+      <ul class="check-list">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c1714f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Du möchtest etwas für deinen Körper tun</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c1714f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Du möchtest Spaß am Sport haben</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c1714f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Du möchtest präventiv etwas für deine Gesundheit tun</li>
+      </ul>
+      <p style="color:#e8e3d6;margin-top:20px;font-weight:600">Dann bist du bei uns genau richtig.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept" id="konzept">
+  <div class="wrap concept-grid">
+    <div>
+      <span class="pill">Unser Konzept – seit 20 Jahren</span>
+      <h2>Keine Geräte. Dafür echte Betreuung in familiärer Atmosphäre.</h2>
+      <p>Was uns von anderen Fitness-Studios unterscheidet? Bei uns findest du keine Geräte-Fläche. Wir sind spezialisiert auf Gruppenfitness und Personal Training mit dem eigenen Körpergewicht und Equipment wie Kurz- &amp; Langhantel, Therabändern, Gymnastikbällen, Kettlebells und Faszienrollen.</p>
+      <p>In jedem Kurs sind ein bis zwei qualifizierte Trainer dabei, um dich zu fordern, zu motivieren, anzuleiten und zu korrigieren. Unser Motto: <strong>„Qualität vor Quantität“.</strong></p>
+      <p>Daraus ergibt sich ein individueller Monatsbeitrag nach Kursanzahl und Format – keine Pauschale. Du wirst schnell in die Gruppe integriert und findest auch als Einzelperson Anschluss.</p>
+    </div>
+    <div class="feature-stack">
+      <div class="feature">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6.5 6.5 17.5 17.5M6.5 17.5 17.5 6.5"/><circle cx="4" cy="12" r="2"/><circle cx="20" cy="12" r="2"/></svg></div>
+        <div><h4>Training mit Equipment</h4><p>Hanteln, Bänder, Bälle, Boards, Kettlebells &amp; mehr – statt anonymer Geräte-Fläche.</p></div>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <div><h4>1–2 qualifizierte Trainer</h4><p>Persönliche Anleitung &amp; Korrektur in jeder Einheit – für gesundes, sicheres Training.</p></div>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/></svg></div>
+        <div><h4>Faire Beiträge</h4><p>Individueller Monatsbeitrag, keine Aufnahmegebühr, keine Mindestlaufzeit.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<section id="angebot">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Unser Angebot auf einen Blick</span>
+      <h2>Finde das Training, das zu dir passt</h2>
+      <p>Von tanzbarem Cardio über Krafttraining bis zu Ruhe und Regeneration – für jedes Ziel das passende Format.</p>
+    </div>
+    <div class="offers-grid">
+      <div class="offer"><div class="dot" style="background:#c1714f">💃</div><span class="tag">Tanz &amp; Cardio</span><h3>Zumba Fitness</h3><p>DAS lateinamerikanische Tanz-Workout – Fitness, die sich wie Feiern anfühlt.</p></div>
+      <div class="offer"><div class="dot" style="background:#5b7a5a">🔥</div><span class="tag">Cardio &amp; Kraft</span><h3>BodyPower</h3><p>Powermix im Intervall-Rhythmus aus Cardio &amp; Krafttraining.</p></div>
+      <div class="offer"><div class="dot" style="background:#8aa481">🤸</div><span class="tag">Trampolin</span><h3>Jumping &amp; Booster</h3><p>Das original Trampolin-Workout – Booster verbindet Jumping mit Krafttraining.</p></div>
+      <div class="offer"><div class="dot" style="background:#a85a3a">🥁</div><span class="tag">Ganzkörper</span><h3>Pound Rockout</h3><p>Rockiges Ganzkörper-Workout mit Ripstix – auspowern garantiert.</p></div>
+      <div class="offer"><div class="dot" style="background:#33503f">💪</div><span class="tag">Toning</span><h3>BodyShape</h3><p>Mittelschweres Ganzkörper-Training für einen definierten Körper.</p></div>
+      <div class="offer"><div class="dot" style="background:#5b7a5a">🔁</div><span class="tag">Zirkel</span><h3>Circle Fit</h3><p>Zirkeltraining mit abwechslungsreichen, wechselnden Stationen.</p></div>
+      <div class="offer"><div class="dot" style="background:#c1714f">🏋️</div><span class="tag">Kraft</span><h3>Pump Fit</h3><p>Krafttraining mit Langhantel &amp; Gewichtsscheiben.</p></div>
+      <div class="offer"><div class="dot" style="background:#8aa481">👶</div><span class="tag">Für Mamas</span><h3>Fit mit Baby</h3><p>Sanfter Einstieg für frisch gebackene Mamas – Baby willkommen.</p></div>
+      <div class="offer"><div class="dot" style="background:#33503f">🦴</div><span class="tag">Prävention</span><h3>Rücken Fit</h3><p>Alles für einen gesunden, starken Rücken.</p></div>
+      <div class="offer"><div class="dot" style="background:#5b7a5a">🧘</div><span class="tag">Regeneration</span><h3>Recovery</h3><p>Pilates, Yoga &amp; Dehnung – Balance für Körper und Geist.</p></div>
+      <div class="offer"><div class="dot" style="background:#8aa481">🌿</div><span class="tag">Achtsamkeit</span><h3>Hatha &amp; Yin Yoga</h3><p>Meditation, Atmung &amp; Körperübungen – als Präventionskurs erstattungsfähig.</p></div>
+      <div class="offer"><div class="dot" style="background:#a85a3a">🍎</div><span class="tag">Beratung</span><h3>Ernährung &amp; Personal Training</h3><p>Ganzheitliche Ernährungsberatung und Einzelcoaching ganz nach deinem Ziel.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:42px">
+      <a href="angebot.html" class="btn">Alle Angebote im Detail ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOLISTIC -->
+<section class="holistic" id="ganzheitlich">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--sand)">Mehr als nur Sport</span>
+      <h2>Ganzheitliches Gesundheitsmanagement</h2>
+      <p>Wir verbinden effektiven Sport und Spaß für ein ganz neues Körpergefühl. Doch Gesundheit ist mehr als Bewegung: Ernährung, Regeneration und das richtige Mindset gehören zusammen.</p>
+      <p>Inhaberin Sabrina Schellberg-Saß ist Fachberaterin für Gesundheit &amp; Ernährung und lizenzierte Trainerin – mit einem Konzept, das den Menschen als Ganzes sieht und sogar Natur- &amp; Waldtherapie sowie Sound Healing integriert.</p>
+    </div>
+    <div>
+      <div class="chips">
+        <span class="chip">Ernährungsberatung</span>
+        <span class="chip">Stoffwechselanalysen</span>
+        <span class="chip">Massagen</span>
+        <span class="chip">Yoga &amp; Qi Gong</span>
+        <span class="chip">Waldtherapie</span>
+        <span class="chip">Sound Healing</span>
+        <span class="chip">Personal Training</span>
+        <span class="chip">Mindset &amp; Balance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JUBILEE -->
+<section class="jubilee">
+  <div class="wrap">
+    <span class="badge">20</span>
+    <h2>Im Mai 2026 feiern wir 20-jähriges Jubiläum!</h2>
+    <p>Herzlichen Dank an euch alle – für eure Treue, für die tollen Kurseinheiten und Einzelcoachings. Danke, dass ihr Teil davon seid! 🌿</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="contact-card">
+      <h2>Werde Teil vom Team Fit &amp; Friends</h2>
+      <p>Schnupper vorab in jeden Kurs hinein, der dich interessiert. Der einfachste Weg zu uns:</p>
+      <div class="contact-row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbf9f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
+        <a href="mailto:sabrinaschellberg@googlemail.com">sabrinaschellberg@googlemail.com</a>
+      </div>
+      <div class="contact-row">
+        <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbf9f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
+        <a href="https://wa.me/491777115258">WhatsApp: 0177 / 7115258</a>
+      </div>
+      <a href="mailto:sabrinaschellberg@googlemail.com" class="btn" style="background:var(--clay);margin-top:14px">Probestunde anfragen</a>
+    </div>
+    <div class="info-box">
+      <h3>So findest du uns</h3>
+      <div class="line"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5b7a5a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span><strong>Studio:</strong> An der Bundesstraße 8, 23911 Ziethen<br><span style="color:var(--muted)">Gewerbegebiet Ziethen bei Ratzeburg</span></span></div>
+      <div class="line"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5b7a5a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span><strong>Probestunde:</strong> 10,00 € – wird bei Vertragsabschluss verrechnet. Bitte vorab anmelden!</span></div>
+      <div class="line"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5b7a5a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Keine Aufnahmegebühr &amp; keine Mindestvertragslaufzeit.</span></div>
+      <div class="hours">Aktueller Kursplan von Montag bis Samstag – versäumte Stunden können jederzeit nachgeholt werden.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="logo-light.svg" alt="Fit &amp; Friends" class="foot-logo">
+        </div>
+        <p style="max-width:34ch">Studio für Gruppenfitness &amp; Ernährungsberatung. Dein Coach für ganzheitliches Gesundheitsmanagement in Ziethen.</p>
+      </div>
+      <div>
+        <h4>Angebot</h4>
+        <div class="foot-links">
+          <a href="#angebot">Kurse &amp; Formate</a>
+          <a href="#ganzheitlich">Ernährungsberatung</a>
+          <a href="#ganzheitlich">Analysen &amp; Tests</a>
+          <a href="#ganzheitlich">Anwendungen / Massagen</a>
+        </div>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <div class="foot-links">
+          <a href="mailto:sabrinaschellberg@googlemail.com">E-Mail schreiben</a>
+          <a href="https://wa.me/491777115258">WhatsApp 0177 / 7115258</a>
+          <span>An der Bundesstraße 8<br>23911 Ziethen</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Fit &amp; Friends · Inh. Sabrina Schellberg-Saß</span>
+      <span>Büro: Dorfstraße 11a, 23911 Ziethen · Tel. 0 45 41 / 80 21 71</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const t=document.getElementById('menuToggle'),l=document.getElementById('navLinks');
+  t.addEventListener('click',()=>l.classList.toggle('open'));
+  l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
+</script>
+</body>
+</html>
